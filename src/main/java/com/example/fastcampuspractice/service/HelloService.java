@@ -1,15 +1,12 @@
 package com.example.fastcampuspractice.service;
 
-import org.springframework.stereotype.Service;
+public interface HelloService {
 
-import java.util.List;
-
-@Service
-public class HelloService {
-
-    public String sayHello(String name) {
-        List<Integer> list = List.of(1, 2, 3, 4, 5);
-
-        return "hello, " + name + " !!!";
-    }
+    /**
+     * 헬로 서비스는 사용자 이름을 받아서 반갑게 인사해주자.
+     *
+     * @param name 사용자 이름
+     * @return 인사해준다
+     */
+    String sayHello(String name);
 }
