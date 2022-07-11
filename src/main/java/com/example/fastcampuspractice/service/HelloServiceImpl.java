@@ -1,14 +1,11 @@
 package com.example.fastcampuspractice.service;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.List;
 
 
 @RequestScope
-@Service
 public class HelloServiceImpl implements HelloService {
 
     @Override
