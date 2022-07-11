@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MainController {
 
-    private final HelloService helloServiceImpl2;
+    private final HelloService helloServiceImpl;
 
     @GetMapping("/api/main")
     public String main(@RequestParam String name) {
-        return helloServiceImpl2.sayHello(name);
+        return helloServiceImpl.sayHello(name);
     }
+
 
 }
