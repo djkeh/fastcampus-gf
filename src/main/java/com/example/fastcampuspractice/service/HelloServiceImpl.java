@@ -8,10 +8,14 @@ import java.util.List;
 @RequestScope
 public class HelloServiceImpl implements HelloService {
 
+    @Value("${uno.korean.hello}")
+    private String hello;
+
+
     @Override
     public String sayHello(String name) {
         List<Integer> list = List.of(1, 2, 3, 4, 5);
 
-        return "hello, " + name + " !!! I'm " + this.toString();
+        return hello + ", " + name + " !!! I'm " + this.toString();
     }
 }
