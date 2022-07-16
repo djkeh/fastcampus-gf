@@ -1,5 +1,6 @@
 package com.example.fastcampuspractice.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.List;
