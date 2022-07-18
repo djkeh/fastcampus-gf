@@ -1,0 +1,9 @@
+management.endpoints.web.exposure.include: "*"
+
+
+
+uno:
+  korean:
+    hello: 안녕하세요
+  english:
+    hello: hello
