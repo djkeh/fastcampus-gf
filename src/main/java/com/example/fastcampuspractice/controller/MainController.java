@@ -10,7 +10,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @RequiredArgsConstructor
-//@RestController
 @Controller
 public class MainController {
 
@@ -18,7 +17,7 @@ public class MainController {
 
     @GetMapping("/api/main")
     public String main(@RequestParam String name) {
-        String resultMessage = helloServiceImpl.sayHello(name);
+        String resultMessage = helloServiceImpl.sayHello(name); // TODO: resultMessage 는 타임리프 공부에서 활용하려고 함. 일단 놔둔다.
         return "main/index";
     }
 
