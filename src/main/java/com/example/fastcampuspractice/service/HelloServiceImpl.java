@@ -21,6 +21,6 @@ public class HelloServiceImpl implements HelloService {
 
         List<Integer> list = List.of(1, 2, 3, 4, 5);
 
-        return hello + ", " + name + " !!!";
+        return hello + ", " + name;
     }
 }

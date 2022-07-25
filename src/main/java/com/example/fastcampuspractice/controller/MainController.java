@@ -3,6 +3,7 @@ package com.example.fastcampuspractice.controller;
 import com.example.fastcampuspractice.service.HelloService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -15,9 +16,11 @@ public class MainController {
 
     private final HelloService helloServiceImpl;
 
-    @GetMapping("/api/main")
-    public String main(@RequestParam String name) {
-        String resultMessage = helloServiceImpl.sayHello(name); // TODO: resultMessage 는 타임리프 공부에서 활용하려고 함. 일단 놔둔다.
+    @GetMapping("/main")
+    public String main(@RequestParam String name, ModelMap modelMap) {
+        String message = helloServiceImpl.sayHello(name);
+        modelMap.addAttribute("message", message);
+
         return "main/index";
     }
 
