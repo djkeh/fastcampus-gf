@@ -2,7 +2,6 @@ package com.example.fastcampuspractice.controller;
 
 import com.example.fastcampuspractice.service.HelloService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +10,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
-@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class MainController {
@@ -37,11 +35,6 @@ public class MainController {
             @NotBlank String name,
             @Min(10) Integer age
     ) {
-    }
-
-    @ExceptionHandler
-    public void exceptionHandler(Exception e) {
-        log.error("아 이거 에러가 심각하네?? {}", e.getLocalizedMessage());
     }
 
 }
