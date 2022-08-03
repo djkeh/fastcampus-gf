@@ -1,5 +1,7 @@
 package com.example.fastcampuspractice.config;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +22,8 @@ public class ThymeleafConfig {
     }
 
 
+    @Getter
+    @RequiredArgsConstructor
     @ConstructorBinding
     @ConfigurationProperties("spring.thymeleaf3")
     public static class Thymeleaf3Properties {
@@ -27,14 +31,6 @@ public class ThymeleafConfig {
          * Use Thymeleaf 3 Decoupled Logic
          */
         private final boolean decoupledLogic;
-
-        public Thymeleaf3Properties(boolean decoupledLogic) {
-            this.decoupledLogic = decoupledLogic;
-        }
-
-        public boolean isDecoupledLogic() {
-            return this.decoupledLogic;
-        }
     }
 
 }
