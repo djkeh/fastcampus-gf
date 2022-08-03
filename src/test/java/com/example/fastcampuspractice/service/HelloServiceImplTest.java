@@ -23,7 +23,7 @@ class HelloServiceImplTest {
         String result = helloServiceImpl.sayHello(username);
 
         // Then
-        assertThat(result).isEqualTo( "안녕하세요, " + username + " !!!");
+        assertThat(result).isEqualTo( "안녕하세요, " + username);
     }
 
 }

@@ -7,3 +7,5 @@ uno:
     hello: 안녕하세요
   english:
     hello: hello
+
+spring.thymeleaf3.decoupled-logic: true
