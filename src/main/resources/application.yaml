@@ -8,4 +8,9 @@ uno:
   english:
     hello: hello
 
-spring.thymeleaf3.decoupled-logic: true
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  thymeleaf3.decoupled-logic: true
