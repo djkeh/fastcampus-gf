@@ -1,6 +1,9 @@
 management.endpoints.web.exposure.include: "*"
 server.error.whitelabel.enabled: false
 
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
 
 uno:
   korean:
@@ -8,4 +11,16 @@ uno:
   english:
     hello: hello
 
-spring.thymeleaf3.decoupled-logic: true
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+  thymeleaf3.decoupled-logic: true
