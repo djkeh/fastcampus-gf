@@ -1,8 +1,9 @@
 package com.example.fastcampuspractice.domain;
 
+import com.example.fastcampuspractice.constant.Grade;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.event.EventListener;
+import lombok.ToString;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -11,8 +12,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Getter
+@ToString
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 public class Student {
@@ -21,9 +24,9 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Setter private String name;
-    @Setter private Integer age;
-    @Setter private Grade grade;
+    @Setter @Column(nullable = false) private String name;
+    @Setter @Column(nullable = false) private Integer age;
+    @Setter @Column(nullable = false) @Enumerated(EnumType.STRING) private Grade grade;
 
     @CreatedDate private LocalDateTime createdAt;
     @CreatedBy private String createdBy;
@@ -38,7 +41,15 @@ public class Student {
         this.grade = grade;
     }
 
-    public enum Grade {
-        A, B, C, D, F
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student that)) return false;
+        return this.getId() != null && this.getId().equals(that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
