@@ -13,4 +13,8 @@ spring:
     url: jdbc:h2:mem:testdb
     username: sa
     password:
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
   thymeleaf3.decoupled-logic: true
