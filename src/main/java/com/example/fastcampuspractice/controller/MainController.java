@@ -2,8 +2,10 @@ package com.example.fastcampuspractice.controller;
 
 import com.example.fastcampuspractice.constant.Grade;
 import com.example.fastcampuspractice.dto.StudentDto;
+import com.example.fastcampuspractice.dto.SubjectDto;
 import com.example.fastcampuspractice.service.HelloService;
 import com.example.fastcampuspractice.service.StudentService;
+import com.example.fastcampuspractice.service.SubjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,6 +22,7 @@ public class MainController {
 
     private final HelloService helloServiceImpl;
     private final StudentService studentService;
+    private final SubjectService subjectService;
 
     @GetMapping("/main")
     public String main(@RequestParam String name, ModelMap modelMap) {
@@ -54,4 +57,9 @@ public class MainController {
         return studentService.getStudents(grade);
     }
 
+    @ResponseBody
+    @GetMapping("/subjects")
+    public List<SubjectDto> getSubjects() {
+        return subjectService.getSubjects();
+    }
 }
