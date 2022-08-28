@@ -7,6 +7,9 @@ import com.example.fastcampuspractice.service.HelloService;
 import com.example.fastcampuspractice.service.StudentService;
 import com.example.fastcampuspractice.service.SubjectService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +19,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class MainController {
@@ -25,9 +29,15 @@ public class MainController {
     private final SubjectService subjectService;
 
     @GetMapping("/main")
-    public String main(@RequestParam String name, ModelMap modelMap) {
+    public String main(
+            @RequestParam String name,
+            ModelMap modelMap,
+            @AuthenticationPrincipal UserDetails user
+    ) {
         String message = helloServiceImpl.sayHello(name);
         modelMap.addAttribute("message", message);
+
+        log.warn("인증 - user: {}", user);
 
         return "main/index";
     }
