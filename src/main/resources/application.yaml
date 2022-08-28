@@ -12,12 +12,6 @@ uno:
     hello: hello
 
 spring:
-  security:
-    user:
-      name: uno
-      password: 1234
-      roles:
-        - USER
   datasource:
     url: jdbc:h2:mem:testdb
     username: sa
